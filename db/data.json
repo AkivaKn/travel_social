@@ -56,21 +56,21 @@
         "post_id": 1,
         "caption": "My first post!",
         "user_profile_id": 1,
-        "private": false,
+        "private_post": false,
         "created_at": "2024-01-03T14:00:00Z"
       },
       {
         "post_id": 2,
         "caption": "Hello, world!",
         "user_profile_id": 2,
-        "private": true,
+        "private_post": true,
         "created_at": "2024-01-04T15:30:00Z"
       },
       {
         "post_id": 3,
         "caption": "Exploring new places!",
         "user_profile_id": 3,
-        "private": false,
+        "private_post": false,
         "created_at": "2024-01-05T16:45:00Z"
       }
     ],
