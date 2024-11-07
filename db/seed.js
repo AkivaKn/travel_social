@@ -1,5 +1,5 @@
 const format = require("pg-format");
-const db = require("./index");
+const db = require("./connection");
 
 async function seed({
   users,
@@ -80,7 +80,7 @@ async function seed({
         "post_id" SERIAL PRIMARY KEY,
         "caption" VARCHAR,
         "user_profile_id" INT REFERENCES user_profiles(user_profile_id) NOT NULL,
-        "private" boolean NOT NULL,
+        "private_post" boolean NOT NULL,
         "created_at" TIMESTAMP DEFAULT NOW()
       );`);
 
@@ -139,9 +139,9 @@ async function seed({
   await db.query(insertUserProfilesQueryStr);
 
   const insertPostsQueryStr = format(
-    "INSERT INTO posts (caption, user_profile_id, private, created_at) VALUES %L;",
-    posts.map(({caption, user_profile_id, private, created_at }) => [
-      caption, user_profile_id, private, created_at
+    "INSERT INTO posts (caption, user_profile_id, private_post, created_at) VALUES %L;",
+    posts.map(({caption, user_profile_id, private_post, created_at }) => [
+      caption, user_profile_id, private_post, created_at
     ])
   );
   await db.query(insertPostsQueryStr);
